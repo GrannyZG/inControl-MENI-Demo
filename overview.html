@@ -6,7 +6,7 @@
     <title>Crestron Elegance – House Overview</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="vendor/feather.min.js"></script>
     <script src="components/navbar.js"></script>
 </head>
 <body class="bg-gray-900 text-white h-screen w-screen overflow-hidden flex">
@@ -589,18 +589,18 @@
 
                     </div> <!-- end panel-functions -->
 
-                    <!-- FLOORS PANEL placeholder for JS injection -->
+                    <!-- FLOORS PANEL -->
                     <div id="panel-floors" class="space-y-4 hidden">
                         <div id="floors-placeholder" class="bg-gray-800/80 border border-white/5 rounded-2xl p-6 text-center text-sm text-gray-400">
-                            Select a room from the Floors tab to see local devices.
+                            Select a floor from the tab to review local devices.
                         </div>
 
                         <div data-room-panel="basement" class="room-panel hidden space-y-4">
                             <div class="bg-gray-800/70 border border-white/5 rounded-2xl p-4">
                                 <div class="flex items-center justify-between mb-4">
                                     <div>
-                                        <h3 class="text-sm font-semibold">Basement Lounge · Lighting</h3>
-                                        <p class="text-[11px] text-gray-400">Cinema · Ambient strip</p>
+                                        <h3 class="text-sm font-semibold">Basement Lounge</h3>
+                                        <p class="text-[11px] text-gray-400">Cinema · Ambient scenes</p>
                                     </div>
                                 </div>
                                 <div class="space-y-3">
@@ -609,18 +609,11 @@
                                             <div class="text-sm font-semibold light-name">Ambient Strip</div>
                                             <div class="text-[11px] text-gray-400 light-location">Basement Lounge</div>
                                         </div>
-                                        <div class="text-xs text-gray-300">
-                                            Level: <span class="light-level font-semibold">60</span>%
+                                        <div class="text-xs text-gray-300 light-meta">
+                                            Level: <span class="light-level font-semibold">50</span>%
                                         </div>
                                         <div class="flex items-center gap-3">
-                                            <div
-                                                class="light-toggle is-on"
-                                                data-light-toggle
-                                                role="switch"
-                                                aria-checked="true"
-                                                aria-label="Toggle Living Feature Wall"
-                                                tabindex="0"
-                                            >
+                                            <div class="light-toggle is-on" data-light-toggle role="switch" aria-checked="true" tabindex="0">
                                                 <div class="toggle-track">
                                                     <div class="toggle-thumb"></div>
                                                 </div>
@@ -630,110 +623,93 @@
                                             </button>
                                         </div>
                                     </div>
+                                    <div class="bg-gray-900/70 rounded-xl px-4 py-3 flex items-center justify-between border border-white/5" data-climate-row data-current-temp="21" data-mode="heat">
+                                        <div class="flex items-center gap-3">
+                                            <div>
+                                                <div class="text-sm font-semibold">Basement Thermostat</div>
+                                                <div class="text-[11px] text-gray-400">VRV cassette</div>
+                                            </div>
+                                            <div class="text-xs text-gray-300">
+                                                Current: <span class="font-semibold">21°C</span>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-center gap-4">
+                                            <div class="text-xs text-gray-200">
+                                                <div class="flex items-center gap-1">
+                                                    <span class="target-temp font-semibold">20.0</span>°C
+                                                    <span class="climate-icon flex"></span>
+                                                </div>
+                                                <div class="flex items-center gap-1 mt-1">
+                                                    <button class="climate-mode-btn active" data-mode="heat">Heat</button>
+                                                    <button class="climate-mode-btn" data-mode="cool">Cool</button>
+                                                </div>
+                                            </div>
+                                            <div class="flex items-center gap-2">
+                                                <button class="btn-temp-down text-xs px-3 py-1 rounded-full bg-gray-700 hover:bg-gray-600 flex items-center justify-center">
+                                                    <i data-feather="minus" class="w-3 h-3"></i>
+                                                </button>
+                                                <button class="btn-temp-up text-xs px-3 py-1 rounded-full bg-gray-700 hover:bg-gray-600 flex items-center justify-center">
+                                                    <i data-feather="plus" class="w-3 h-3"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="bg-gray-800/70 border border-white/5 rounded-2xl p-4">
+                                <div class="flex items-center justify-between mb-4">
+                                    <div>
+                                        <h3 class="text-sm font-semibold">Storage Room</h3>
+                                        <p class="text-[11px] text-gray-400">Utility · Lighting + climate</p>
+                                    </div>
+                                </div>
+                                <div class="space-y-3">
                                     <div class="bg-gray-900/70 rounded-xl px-4 py-3 flex items-center justify-between border border-white/5" data-light-row>
                                         <div>
-                                            <div class="text-sm font-semibold light-name">Storage Shelves</div>
-                                            <div class="text-[11px] text-gray-400 light-location">Basement Storage</div>
+                                            <div class="text-sm font-semibold light-name">Shelf Lights</div>
+                                            <div class="text-[11px] text-gray-400 light-location">Storage</div>
                                         </div>
-                                        <div class="text-xs text-gray-300">
-                                            State: <span class="light-state font-semibold">OFF</span>
+                                        <div class="text-xs text-gray-300 light-meta">
+                                            State: <span class="light-state font-semibold">ON</span>
                                         </div>
                                         <div class="flex items-center gap-3">
-                                            <div
-                                                class="light-toggle"
-                                                data-light-toggle
-                                                role="switch"
-                                                aria-checked="false"
-                                                aria-label="Toggle Living Pendants"
-                                                tabindex="0"
-                                            >
+                                            <div class="light-toggle is-on" data-light-toggle role="switch" aria-checked="true" tabindex="0">
                                                 <div class="toggle-track">
                                                     <div class="toggle-thumb"></div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-
-                            <div class="bg-gray-800/70 border border-white/5 rounded-2xl p-4">
-                                <div class="flex items-center justify-between mb-4">
-                                    <div>
-                                        <h3 class="text-sm font-semibold">Basement Lounge · Climate</h3>
-                                        <p class="text-[11px] text-gray-400">Cinema thermostat</p>
-                                    </div>
-                                </div>
-                                <div class="bg-gray-900/70 rounded-xl px-4 py-3 flex items-center justify-between border border-white/5" data-climate-row>
-                                    <div class="flex items-center gap-3">
-                                        <div>
-                                            <div class="text-sm font-semibold">Basement Thermostat</div>
-                                            <div class="text-[11px] text-gray-400">VRV cassette</div>
-                                        </div>
-                                        <div class="text-xs text-gray-300">
-                                            Current: <span class="font-semibold">22°C</span>
-                                        </div>
-                                    </div>
-                                    <div class="flex items-center gap-4">
-                                        <div class="text-xs text-gray-200">
-                                            <div class="flex items-center gap-1">
-                                                <span class="target-temp font-semibold">21.5</span>°C
-                                                <span class="climate-icon flex"></span>
+                                    <div class="bg-gray-900/70 rounded-xl px-4 py-3 flex items-center justify-between border border-white/5" data-climate-row data-current-temp="19" data-mode="heat">
+                                        <div class="flex items-center gap-3">
+                                            <div>
+                                                <div class="text-sm font-semibold">Storage Thermostat</div>
+                                                <div class="text-[11px] text-gray-400">Dehumidifier</div>
                                             </div>
-                                            <div class="flex items-center gap-1 mt-1">
-                                                <button class="climate-mode-btn active" data-mode="heat">Heat</button>
-                                                <button class="climate-mode-btn" data-mode="cool">Cool</button>
+                                            <div class="text-xs text-gray-300">
+                                                Current: <span class="font-semibold">19°C</span>
                                             </div>
                                         </div>
-                                        <div class="flex items-center gap-2">
-                                            <button class="btn-temp-down text-xs px-3 py-1 rounded-full bg-gray-700 hover:bg-gray-600 flex items-center justify-center">
-                                                <i data-feather="minus" class="w-3 h-3"></i>
-                                            </button>
-                                            <button class="btn-temp-up text-xs px-3 py-1 rounded-full bg-gray-700 hover:bg-gray-600 flex items-center justify-center">
-                                                <i data-feather="plus" class="w-3 h-3"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="bg-gray-800/70 border border-white/5 rounded-2xl p-4">
-                                <div class="flex items-center justify-between mb-4">
-                                    <div>
-                                        <h3 class="text-sm font-semibold">Living Room · Blinds</h3>
-                                        <p class="text-[11px] text-gray-400">Sheer + blackout</p>
-                                    </div>
-                                </div>
-                                <div class="space-y-3">
-                                    <div class="bg-gray-900/70 rounded-xl px-4 py-3 flex items-center justify-between border border-white/5">
-                                        <div>
-                                            <div class="text-sm font-semibold">Storage Aisle</div>
-                                            <div class="text-[11px] text-gray-400">Motion wash</div>
-                                        </div>
-                                        <div class="flex items-center gap-2">
-                                            <button class="text-xs px-3 py-1 rounded-full bg-gray-700 hover:bg-gray-600 flex items-center gap-1">
-                                                <i data-feather="arrow-up" class="w-3 h-3"></i>
-                                                UP
-                                            </button>
-                                            <button class="text-xs px-3 py-1 rounded-full bg-gray-700 hover:bg-gray-600 flex items-center gap-1">
-                                                <i data-feather="arrow-down" class="w-3 h-3"></i>
-                                                DOWN
-                                            </button>
-                                        </div>
-                                    </div>
-                                    <div class="bg-gray-900/70 rounded-xl px-4 py-3 flex items-center justify-between border border-white/5">
-                                        <div>
-                                            <div class="text-sm font-semibold">Utility Door</div>
-                                            <div class="text-[11px] text-gray-400">Entry strip</div>
-                                        </div>
-                                        <div class="flex items-center gap-2">
-                                            <button class="text-xs px-3 py-1 rounded-full bg-gray-700 hover:bg-gray-600 flex items-center gap-1">
-                                                <i data-feather="arrow-up" class="w-3 h-3"></i>
-                                                UP
-                                            </button>
-                                            <button class="text-xs px-3 py-1 rounded-full bg-gray-700 hover-bg-gray-600 flex items-center gap-1">
-                                                <i data-feather="arrow-down" class="w-3 h-3"></i>
-                                                DOWN
-                                            </button>
+                                        <div class="flex items-center gap-4">
+                                            <div class="text-xs text-gray-200">
+                                                <div class="flex items-center gap-1">
+                                                    <span class="target-temp font-semibold">19.0</span>°C
+                                                    <span class="climate-icon flex"></span>
+                                                </div>
+                                                <div class="flex items-center gap-1 mt-1">
+                                                    <button class="climate-mode-btn active" data-mode="heat">Heat</button>
+                                                    <button class="climate-mode-btn" data-mode="cool">Cool</button>
+                                                </div>
+                                            </div>
+                                            <div class="flex items-center gap-2">
+                                                <button class="btn-temp-down text-xs px-3 py-1 rounded-full bg-gray-700 hover:bg-gray-600 flex items-center justify-center">
+                                                    <i data-feather="minus" class="w-3 h-3"></i>
+                                                </button>
+                                                <button class="btn-temp-up text-xs px-3 py-1 rounded-full bg-gray-700 hover:bg-gray-600 flex items-center justify-center">
+                                                    <i data-feather="plus" class="w-3 h-3"></i>
+                                                </button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -744,28 +720,21 @@
                             <div class="bg-gray-800/70 border border-white/5 rounded-2xl p-4">
                                 <div class="flex items-center justify-between mb-4">
                                     <div>
-                                        <h3 class="text-sm font-semibold">Kitchen · Lighting</h3>
-                                        <p class="text-[11px] text-gray-400">Ground Floor · Task area</p>
+                                        <h3 class="text-sm font-semibold">Kitchen</h3>
+                                        <p class="text-[11px] text-gray-400">Ground Floor · Task lighting</p>
                                     </div>
                                 </div>
                                 <div class="space-y-3">
                                     <div class="bg-gray-900/70 rounded-xl px-4 py-3 flex items-center justify-between border border-white/5" data-light-row>
                                         <div>
-                                            <div class="text-sm font-semibold light-name">Suite Spots</div>
-                                            <div class="text-[11px] text-gray-400 light-location">Master Bedroom</div>
+                                            <div class="text-sm font-semibold light-name">Ceiling Spots</div>
+                                            <div class="text-[11px] text-gray-400 light-location">Kitchen</div>
                                         </div>
-                                        <div class="text-xs text-gray-300">
+                                        <div class="text-xs text-gray-300 light-meta">
                                             Level: <span class="light-level font-semibold">35</span>%
                                         </div>
                                         <div class="flex items-center gap-3">
-                                            <div
-                                                class="light-toggle"
-                                                data-light-toggle
-                                                role="switch"
-                                                aria-checked="false"
-                                                aria-label="Toggle Suite Spots"
-                                                tabindex="0"
-                                            >
+                                            <div class="light-toggle" data-light-toggle role="switch" aria-checked="false" tabindex="0">
                                                 <div class="toggle-track">
                                                     <div class="toggle-thumb"></div>
                                                 </div>
@@ -777,21 +746,14 @@
                                     </div>
                                     <div class="bg-gray-900/70 rounded-xl px-4 py-3 flex items-center justify-between border border-white/5" data-light-row>
                                         <div>
-                                            <div class="text-sm font-semibold light-name">Bedside Lamps</div>
-                                            <div class="text-[11px] text-gray-400 light-location">Master Bedroom</div>
+                                            <div class="text-sm font-semibold light-name">Island Pendants</div>
+                                            <div class="text-[11px] text-gray-400 light-location">Kitchen</div>
                                         </div>
-                                        <div class="text-xs text-gray-300">
+                                        <div class="text-xs text-gray-300 light-meta">
                                             State: <span class="light-state font-semibold">ON</span>
                                         </div>
                                         <div class="flex items-center gap-3">
-                                            <div
-                                                class="light-toggle is-on"
-                                                data-light-toggle
-                                                role="switch"
-                                                aria-checked="true"
-                                                aria-label="Toggle Bedside Lamps"
-                                                tabindex="0"
-                                            >
+                                            <div class="light-toggle is-on" data-light-toggle role="switch" aria-checked="true" tabindex="0">
                                                 <div class="toggle-track">
                                                     <div class="toggle-thumb"></div>
                                                 </div>
@@ -804,24 +766,24 @@
                             <div class="bg-gray-800/70 border border-white/5 rounded-2xl p-4">
                                 <div class="flex items-center justify-between mb-4">
                                     <div>
-                                        <h3 class="text-sm font-semibold">Master Bedroom · Climate</h3>
-                                        <p class="text-[11px] text-gray-400">Radiator thermostat</p>
+                                        <h3 class="text-sm font-semibold">Kitchen · Climate</h3>
+                                        <p class="text-[11px] text-gray-400">Radiant floor</p>
                                     </div>
                                 </div>
-                                <div class="bg-gray-900/70 rounded-xl px-4 py-3 flex items-center justify-between border border-white/5" data-climate-row>
+                                <div class="bg-gray-900/70 rounded-xl px-4 py-3 flex items-center justify-between border border-white/5" data-climate-row data-current-temp="22" data-mode="heat">
                                     <div class="flex items-center gap-3">
                                         <div>
-                                            <div class="text-sm font-semibold">Suite Thermostat</div>
-                                            <div class="text-[11px] text-gray-400">Radiator</div>
+                                            <div class="text-sm font-semibold">Kitchen Thermostat</div>
+                                            <div class="text-[11px] text-gray-400">Floor loop</div>
                                         </div>
                                         <div class="text-xs text-gray-300">
-                                            Current: <span class="font-semibold">20°C</span>
+                                            Current: <span class="font-semibold">22°C</span>
                                         </div>
                                     </div>
                                     <div class="flex items-center gap-4">
                                         <div class="text-xs text-gray-200">
                                             <div class="flex items-center gap-1">
-                                                <span class="target-temp font-semibold">19.0</span>°C
+                                                <span class="target-temp font-semibold">21.0</span>°C
                                                 <span class="climate-icon flex"></span>
                                             </div>
                                             <div class="flex items-center gap-1 mt-1">
@@ -844,30 +806,47 @@
                             <div class="bg-gray-800/70 border border-white/5 rounded-2xl p-4">
                                 <div class="flex items-center justify-between mb-4">
                                     <div>
-                                        <h3 class="text-sm font-semibold">Master Bedroom · Blinds</h3>
-                                        <p class="text-[11px] text-gray-400">Blackout roller</p>
+                                        <h3 class="text-sm font-semibold">Hallway</h3>
+                                        <p class="text-[11px] text-gray-400">Entry & path</p>
                                     </div>
                                 </div>
-                                <div class="bg-gray-900/70 rounded-xl px-4 py-3 flex items-center justify-between border border-white/5">
+                                <div class="bg-gray-900/70 rounded-xl px-4 py-3 flex items-center justify-between border border-white/5" data-light-row>
                                     <div>
-                                        <div class="text-sm font-semibold">Balcony Blackout</div>
-                                        <div class="text-[11px] text-gray-400">Suite facade</div>
+                                        <div class="text-sm font-semibold light-name">Hallway Sconces</div>
+                                        <div class="text-[11px] text-gray-400 light-location">Foyer</div>
                                     </div>
-                                    <div class="flex items-center gap-2">
-                                        <button class="text-xs px-3 py-1 rounded-full bg-gray-700 hover:bg-gray-600 flex items-center gap-1">
-                                            <i data-feather="arrow-up" class="w-3 h-3"></i>
-                                            UP
-                                        </button>
-                                        <button class="text-xs px-3 py-1 rounded-full bg-gray-700 hover-bg-gray-600 flex items-center gap-1">
-                                            <i data-feather="arrow-down" class="w-3 h-3"></i>
-                                            DOWN
-                                        </button>
+                                    <div class="text-xs text-gray-300 light-meta">
+                                        State: <span class="light-state font-semibold">ON</span>
+                                    </div>
+                                    <div class="flex items-center gap-3">
+                                        <div class="light-toggle is-on" data-light-toggle role="switch" aria-checked="true" tabindex="0">
+                                            <div class="toggle-track">
+                                                <div class="toggle-thumb"></div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
+                        <div data-room-panel="first" class="room-panel hidden space-y-4">
+                            <div class="bg-gray-800/70 border border-dashed border-white/10 rounded-2xl p-6 text-sm text-center text-gray-400">
+                                Demo website · full content coming soon for this floor.
+                            </div>
+                        </div>
+
+                        <div data-room-panel="roof" class="room-panel hidden space-y-4">
+                            <div class="bg-gray-800/70 border border-dashed border-white/10 rounded-2xl p-6 text-sm text-center text-gray-400">
+                                Demo website · full content coming soon for the roof terrace.
+                            </div>
+                        </div>
+
+                        <div data-room-panel="outside" class="room-panel hidden space-y-4">
+                            <div class="bg-gray-800/70 border border-dashed border-white/10 rounded-2xl p-6 text-sm text-center text-gray-400">
+                                Demo website · full content coming soon for the outdoor zone.
+                            </div>
+                        </div>
+                    </div>
 
                 </div>
             </section>
