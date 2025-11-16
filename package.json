@@ -1,0 +1,23 @@
+{
+  "name": "crestron-elegance-ui",
+  "version": "1.0.0",
+  "description": "Crestron Elegance UI Demo - Modern smart home control interface",
+  "main": "index.html",
+  "scripts": {
+    "start": "python3 -m http.server 8000",
+    "build": "echo 'Static site - no build needed'"
+  },
+  "keywords": [
+    "crestron",
+    "smart-home",
+    "ui",
+    "demo",
+    "responsive"
+  ],
+  "author": "inControl",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/crestron-elegance-ui"
+  }
+}

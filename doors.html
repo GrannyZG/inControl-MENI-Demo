@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crestron Elegance – Doors</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="components/navbar.js"></script>
+</head>
+<body class="bg-gray-900 text-white h-screen w-screen overflow-hidden flex">
+    <custom-navbar></custom-navbar>
+
+    <main class="flex-1 p-6">
+        <div class="h-full bg-gradient-to-b from-gray-900 to-gray-950 rounded-3xl p-5 shadow-2xl border border-white/5 flex gap-6">
+            <!-- Sidebar -->
+            <aside class="w-64 bg-gray-900/80 rounded-2xl p-4 flex flex-col gap-4 border border-white/5">
+                <div class="flex items-center justify-between">
+                    <h2 class="text-sm font-semibold text-gray-300 tracking-wide">Doors & Access</h2>
+                    <button
+                        onclick="window.location.href='index.html'"
+                        class="text-[11px] px-3 py-1 rounded-full bg-gray-800 hover:bg-gray-700 border border-white/10"
+                    >
+                        Back
+                    </button>
+                </div>
+
+                <button class="main-tab-btn is-open" disabled>
+                    <span class="flex items-center gap-2">
+                        <i data-feather="shield" class="w-4 h-4"></i>
+                        Doors
+                    </span>
+                    <span class="text-[10px] uppercase tracking-[0.3em] text-gray-500">Active</span>
+                </button>
+            </aside>
+
+            <!-- Content -->
+            <section class="flex-1 bg-gray-900/80 rounded-2xl p-5 border border-white/5 flex flex-col overflow-hidden">
+                <header class="flex items-center justify-between mb-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-9 h-9 rounded-full bg-indigo-500/20 flex items-center justify-center">
+                            <i data-feather="lock" class="w-4 h-4"></i>
+                        </div>
+                        <div>
+                            <h1 class="text-lg font-semibold">Door Controls</h1>
+                            <p class="text-xs text-gray-400">Monitor and trigger entries around the property</p>
+                        </div>
+                    </div>
+                    <span class="text-[11px] px-3 py-1 rounded-full bg-gray-800 border border-white/10 text-gray-300">
+                        Tap to send momentary commands
+                    </span>
+                </header>
+
+                <div class="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent mb-4"></div>
+
+                <div class="flex-1 overflow-y-auto pr-1 space-y-4">
+                    <div class="bg-gray-800 rounded-2xl border border-white/5 p-4 flex items-center justify-between" data-door-entry>
+                        <div>
+                            <div class="text-sm font-semibold">Front Door</div>
+                            <div class="text-[11px] text-gray-400">Foyer · Smart lock</div>
+                            <div class="text-[11px] text-gray-300 mt-1">Status: <span class="door-status">Locked</span></div>
+                        </div>
+                        <button class="text-xs px-4 py-2 rounded-full bg-indigo-600 hover:bg-indigo-700 door-trigger" data-original-text="OPEN">OPEN</button>
+                    </div>
+
+                    <div class="bg-gray-800 rounded-2xl border border-white/5 p-4 flex items-center justify-between" data-door-entry>
+                        <div>
+                            <div class="text-sm font-semibold">Beach Exit</div>
+                            <div class="text-[11px] text-gray-400">Backyard · Sliding door</div>
+                            <div class="text-[11px] text-gray-300 mt-1">Status: <span class="door-status">Locked</span></div>
+                        </div>
+                        <button class="text-xs px-4 py-2 rounded-full bg-indigo-600 hover:bg-indigo-700 door-trigger" data-original-text="OPEN">OPEN</button>
+                    </div>
+
+                    <div class="bg-gray-800 rounded-2xl border border-white/5 p-4 flex items-center justify-between" data-gate-entry data-last-mode="close">
+                        <div>
+                            <div class="text-sm font-semibold">Garage Door</div>
+                            <div class="text-[11px] text-gray-400">North bay · Sectional</div>
+                            <div class="text-[11px] text-gray-300 mt-1">Status: <span data-gate-status>Idle (Closed)</span></div>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <button class="text-xs px-4 py-2 rounded-full bg-gray-700 hover:bg-gray-600 gate-btn" data-gate-open data-original-text="OPEN">OPEN</button>
+                            <button class="text-xs px-4 py-2 rounded-full bg-gray-700 hover:bg-gray-600 gate-btn" data-gate-close data-original-text="CLOSE">CLOSE</button>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-800 rounded-2xl border border-white/5 p-4 flex items-center justify-between" data-gate-entry data-last-mode="close">
+                        <div>
+                            <div class="text-sm font-semibold">Motorized Gate</div>
+                            <div class="text-[11px] text-gray-400">Driveway · Dual motor</div>
+                            <div class="text-[11px] text-gray-300 mt-1">Status: <span data-gate-status>Idle (Closed)</span></div>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <button class="text-xs px-4 py-2 rounded-full bg-gray-700 hover:bg-gray-600 gate-btn" data-gate-open data-original-text="OPEN">OPEN</button>
+                            <button class="text-xs px-4 py-2 rounded-full bg-gray-700 hover:bg-gray-600 gate-btn" data-gate-close data-original-text="CLOSE">CLOSE</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('[data-door-entry]').forEach(entry => {
+                const btn = entry.querySelector('.door-trigger');
+                const status = entry.querySelector('.door-status');
+                if (!btn) return;
+                btn.addEventListener('click', () => {
+                    const original = btn.dataset.originalText || 'OPEN';
+                    btn.textContent = 'OPENED';
+                    btn.classList.remove('bg-indigo-600','hover:bg-indigo-700');
+                    btn.classList.add('bg-green-600');
+                    btn.disabled = true;
+                    if (status) status.textContent = 'Unlocked';
+                    setTimeout(() => {
+                        btn.textContent = original;
+                        btn.classList.add('bg-indigo-600','hover:bg-indigo-700');
+                        btn.classList.remove('bg-green-600');
+                        btn.disabled = false;
+                        if (status) status.textContent = 'Locked';
+                    }, 5000);
+                });
+            });
+
+            document.querySelectorAll('[data-gate-entry]').forEach(gate => {
+                const openBtn = gate.querySelector('[data-gate-open]');
+                const closeBtn = gate.querySelector('[data-gate-close]');
+                const statusSpan = gate.querySelector('[data-gate-status]');
+                if (!openBtn || !closeBtn || !statusSpan) return;
+
+                function idleLabel(mode) {
+                    return mode === 'open' ? 'Idle (Opened)' : 'Idle (Closed)';
+                }
+
+                function resetButton(btn, finalizeMode) {
+                    btn.textContent = btn.dataset.originalText || '';
+                    btn.classList.remove('bg-indigo-600');
+                    btn.classList.add('bg-gray-700');
+                    delete btn.dataset.state;
+                    const lastMode = finalizeMode || gate.dataset.lastMode || 'close';
+                    gate.dataset.lastMode = lastMode;
+                    statusSpan.textContent = idleLabel(lastMode);
+                }
+
+                function activateButton(btn, modeText) {
+                    btn.textContent = 'STOP';
+                    btn.classList.add('bg-indigo-600');
+                    btn.classList.remove('bg-gray-700');
+                    btn.dataset.state = 'active';
+                    statusSpan.textContent = modeText === 'open' ? 'Opening...' : 'Closing...';
+                }
+
+                openBtn.addEventListener('click', () => {
+                    if (openBtn.dataset.state === 'active') {
+                        resetButton(openBtn, 'open');
+                        return;
+                    }
+                    resetButton(closeBtn);
+                    activateButton(openBtn, 'open');
+                });
+
+                closeBtn.addEventListener('click', () => {
+                    if (closeBtn.dataset.state === 'active') {
+                        resetButton(closeBtn, 'close');
+                        return;
+                    }
+                    resetButton(openBtn);
+                    activateButton(closeBtn, 'close');
+                });
+            });
+
+            if (window.feather) feather.replace();
+        });
+    </script>
+</body>
+</html>
